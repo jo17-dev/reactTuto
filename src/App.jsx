@@ -5,13 +5,17 @@ import Home from './pages/Home.jsx';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Navbar from './navbar/Navbar';
+import { QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 export const AppChildsContext = createContext()
 
 const App = ()=> {
+  const client = new QueryClient();
+
   const [name, setName] = useState("joel");
 
   return (
+    <QueryClientProvider client={client}>
     <AppChildsContext.Provider value={{name, setName}} >
       <Router>
         <Navbar/>
@@ -22,6 +26,7 @@ const App = ()=> {
         </Routes>
       </Router>
     </AppChildsContext.Provider>
+    </QueryClientProvider>
 
   );
 }
