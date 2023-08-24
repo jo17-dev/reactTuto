@@ -14,8 +14,9 @@ const Profil = (props) =>{
 
     return (
         <>
+        <i>Your Account section</i>
         <p>je suis {name} </p>
-        <input type="text" placeholder="Enter a new name" id="newname" />
+        <input type="text" placeholder="Enter your name" id="newname" />
         <button onClick={changeName}>Change</button>
         </>
     )
