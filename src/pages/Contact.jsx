@@ -10,6 +10,7 @@ const Contact = ()=>{
         ]
     );
 
+    // Adding contact
     const addContact =()=>{
 
         if(
@@ -26,6 +27,21 @@ const Contact = ()=>{
 
     }
 
+    // delte contact function
+    const deleteContact = (itemId) =>{
+
+        setContact(
+            contactList.filter(
+                (value)=>{
+                    if(value.id === itemId){
+                        return false;
+                    }
+                    return true;
+                }
+            )
+        );
+    }
+
     return (
         <>
         <h2> contact listing</h2>
@@ -38,7 +54,7 @@ const Contact = ()=>{
                 contactList.map(
                     (elt)=>{
                         return <li key={elt.id}>
-                                    Name: <u>{elt.name}</u> --- Phone number : <u>{elt.tel}</u> <button>delete</button>
+                                    Name: <u>{elt.name}</u> --- Phone number : <u>{elt.tel}</u> <button onClick={()=>deleteContact(elt.id)}>delete</button>
                             </li>;
                     }
                 )
@@ -52,9 +68,3 @@ const Contact = ()=>{
 }
 
 export default Contact;
-
-                // Array.from(contactList, (value)=>{ // for each item, we test if the current eletement is the last an then add the new contact after her
-                //     if(value.id === (contactList.length - 1)){
-    
-                //     }
-                // })
