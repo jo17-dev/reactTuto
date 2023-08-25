@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Navbar from './navbar/Navbar';
 import { QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import Formulaire from './pages/Formulaire.jsx';
+import Meteo from './pages/meteo.jsx';
 
 export const AppChildsContext = createContext()
 
@@ -24,6 +25,7 @@ const App = ()=> {
           <Route path='/' element={<Home/>} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact/>} />
+          <Route path='/meteo' element={<Meteo/>} />
           <Route path='/form' element={<Formulaire />} />
         </Routes>
       </Router>

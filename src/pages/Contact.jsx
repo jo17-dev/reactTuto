@@ -1,6 +1,9 @@
+import userEvent from "@testing-library/user-event";
 import Profil from "./Profil";
 import { useState } from "react";
 const Contact = ()=>{
+
+    const [isHidden ,setIsHidden] = useState(true);
 
     const [contactList, setContact] = useState(
         [
@@ -27,7 +30,7 @@ const Contact = ()=>{
 
     }
 
-    // delte contact function
+    // delete contact function
     const deleteContact = (itemId) =>{
 
         setContact(
@@ -42,6 +45,14 @@ const Contact = ()=>{
         );
     }
 
+    const showUpdateForm = (itemId)=>{
+        console.log('update: '+ itemId);
+    }
+
+
+
+
+
     return (
         <>
         <h2> contact listing</h2>
@@ -54,7 +65,9 @@ const Contact = ()=>{
                 contactList.map(
                     (elt)=>{
                         return <li key={elt.id}>
-                                    Name: <u>{elt.name}</u> --- Phone number : <u>{elt.tel}</u> <button onClick={()=>deleteContact(elt.id)}>delete</button>
+                                    Name: <u>{elt.name}</u> --- Phone number : <u>{elt.tel}</u>
+                                    <button onClick={()=>showUpdateForm(elt.id)} >Update</button>
+                                    <button onClick={()=>deleteContact(elt.id)}>delete</button>
                             </li>;
                     }
                 )
